@@ -7,13 +7,9 @@ import netlify from "@astrojs/netlify";
 import { fileURLToPath } from 'url';
 import path from 'path';
 
-// https://astro.build/config
 export default defineConfig({
-  output: 'static', // Important pour Netlify
-  adapter: netlify({
-    // Configuration pour Netlify
-    dist: new URL('./dist/', import.meta.url)
-  }),
+  output: 'static',
+  adapter: netlify(),
   integrations: [
     tailwind(),
     mdx(),
@@ -33,13 +29,5 @@ export default defineConfig({
         '@layouts': path.resolve(path.dirname(fileURLToPath(import.meta.url)), './src/layouts'),
       }
     }
-  },
-  build: {
-    format: 'file',
-    assets: '_astro',
-    server: '.netlify/functions-internal/',
-    client: 'dist/'
   }
 });
-
-
