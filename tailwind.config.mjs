@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const daisyui = require('daisyui');
 const scrollbar = require('tailwind-scrollbar');
+const scrollbarHide = require('tailwind-scrollbar-hide');
 
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
@@ -75,9 +76,10 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('tailwind-scrollbar-hide'),
+    require('@tailwindcss/forms'),
+    scrollbarHide,
     daisyui,
-    scrollbar
+    scrollbar({ nocompatible: true })
   ],
   daisyui: {
     themes: ["light", "dark"],
