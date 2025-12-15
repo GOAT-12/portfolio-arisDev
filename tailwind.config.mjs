@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import daisyui from "daisyui";
 import scrollbar from "tailwind-scrollbar";
+
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -10,9 +11,12 @@ function withOpacity(variableName) {
   };
 }
 
-module.exports = {
+export default {
   darkMode: "class",
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: [
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./node_modules/astro-icon/**/*.js"
+  ],
   theme: {
     extend: {
       colors: {
@@ -70,9 +74,17 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
     daisyui,
     scrollbar,
     require('tailwind-scrollbar-hide'),
+    require('@tailwindcss/typography')
   ],
+  daisyui: {
+    themes: ["light", "dark"],
+    darkTheme: "dark",
+    base: true,
+    styled: true,
+    utils: true,
+    logs: true,
+  },
 };

@@ -4,14 +4,14 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-  "start": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "astro": "astro",
-  "deploy": "npm run build"
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "npm run build"
   },
   "engines": {
-    "node": "22.x"
+    "node": ">=20.0.0"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^5.1.1",
@@ -23,7 +23,6 @@
     "@iconify-json/mdi": "^1.2.2",
     "@iconify-json/ri": "^1.2.5",
     "@iconify-json/simple-icons": "^1.2.18",
-    "@tailwindcss/typography": "^0.5.13",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "@vercel/analytics": "^1.5.0",
@@ -40,8 +39,9 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/cloudflare": "^12.6.7",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20.11.0",
-    "daisyui": "^4.12.10",
+    "daisyui": "^5.5.14",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.8",
