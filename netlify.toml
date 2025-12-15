@@ -44,3 +44,12 @@
 [context.branch-deploy]
   command = "npm install && npm run build"
   environment = { NODE_ENV = "development" }
+
+[build]
+  command = "npm install && npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
