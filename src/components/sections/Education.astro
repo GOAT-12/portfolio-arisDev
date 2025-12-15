@@ -9,7 +9,7 @@ import { certificates } from '@cv'
   <ul class='space-y-4 py-3 print:space-y-0'>
     {
       education.map(
-        ({ institution, startDate, endDate, area, url, location, studyType }, index) => {
+        ({ institution, startDate, endDate, area, location, studyType }) => {
           const startYear = new Date(startDate).getFullYear()
           const endYear = endDate ? new Date(endDate).getFullYear() : 'En cours'
           const years = `${startYear} - ${endYear}`

@@ -61,12 +61,10 @@ const profilesInfo = profiles.map(({ network, url }) => {
   }
 
   import HotKeyPad from "hotkeypad";
-  import { basics } from "@cv";
 
   const hotkeypad = new HotKeyPad();
   const info = hotkeypad.instance.getAttribute("data-info") ?? "[]";
   const parsedInfo = JSON.parse(info) as Info[];
-  const { email } = basics;
 
   const data = parsedInfo.map(({ url, hotkey, icon, id, section, title }) => {
     return {

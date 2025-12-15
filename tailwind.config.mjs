@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-import daisyui from "daisyui";
-import scrollbar from "tailwind-scrollbar";
+const daisyui = require('daisyui');
+const scrollbar = require('tailwind-scrollbar');
 
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
@@ -11,7 +11,7 @@ function withOpacity(variableName) {
   };
 }
 
-export default {
+module.exports = {
   darkMode: "class",
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
@@ -74,10 +74,10 @@ export default {
     },
   },
   plugins: [
-    daisyui,
-    scrollbar,
+    require('@tailwindcss/typography'),
     require('tailwind-scrollbar-hide'),
-    require('@tailwindcss/typography')
+    daisyui,
+    scrollbar
   ],
   daisyui: {
     themes: ["light", "dark"],
