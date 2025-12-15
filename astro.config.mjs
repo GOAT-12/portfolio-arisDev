@@ -3,12 +3,17 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import astroIcon from 'astro-icon';
 import mdx from '@astrojs/mdx';
-import vercel from "@astrojs/vercel/serverless";
+import netlify from "@astrojs/netlify";
 import { fileURLToPath } from 'url';
 import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static', // Important pour Netlify
+  adapter: netlify({
+    // Configuration pour Netlify
+    dist: new URL('./dist/', import.meta.url)
+  }),
   integrations: [
     tailwind(),
     mdx(),
@@ -29,11 +34,10 @@ export default defineConfig({
       }
     }
   },
-  output: 'server',
-  adapter: vercel({
-    // Configuration minimale pour Vercel
-    webAnalytics: {
-      enabled: true
-    }
-  })
+  build: {
+    format: 'file',
+    assets: '_astro',
+    server: '.netlify/functions-internal/',
+    client: 'dist/'
+  }
 });

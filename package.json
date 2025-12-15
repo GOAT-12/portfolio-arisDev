@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "deploy:netlify": "netlify deploy --prod",
     "deploy:vercel": "vercel deploy",
     "deploy:cloudflare": "astro build && wrangler pages deploy ./dist"
   },
@@ -29,7 +30,6 @@
     "@types/react-dom": "^19.1.7",
     "@vercel/analytics": "^1.5.0",
     "astro": "^5.13.7",
-    "@astrojs/vercel": "^8.3.0",
     "astro-icon": "^1.1.1",
     "gsap": "^3.12.5",
     "hotkeypad": "0.1.1",

@@ -1,7 +1,46 @@
 [build.environment]
-  NETLIFY_USE_PNPM = "true"
   NODE_VERSION = "18"
+  PNPM_VERSION = "8.6.0"
+  NPM_FLAGS = "--legacy-peer-deps"
+  YARN_VERSION = "1.22.19"
 
 [build]
-  command = "OUTPUT=netlify astro build"
+  command = "npm install && npm run build"
   publish = "dist"
+
+[build.environment]
+  # Configuration pour Astro
+  NODE_ENV = "production"
+  # Désactiver les fonctions Netlify (si vous n'en utilisez pas)
+  NETLIFY_USE_YARN = "true"
+  NETLIFY_USE_PNPM = "false"
+
+# Redirections pour le routage SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# En-têtes pour la sécurité et les performances
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;"
+    
+# Paramètres d'optimisation
+[context.production.environment]
+  NETLIFY = "true"
+  NODE_ENV = "production"
+  
+# Configuration pour les branches de développement (optionnel)
+[context.deploy-preview]
+  command = "npm install && npm run build"
+  environment = { NODE_ENV = "development" }
+
+[context.branch-deploy]
+  command = "npm install && npm run build"
+  environment = { NODE_ENV = "development" }
