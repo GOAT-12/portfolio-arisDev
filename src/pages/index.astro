@@ -14,18 +14,25 @@ import NeovimButton from "@/components/neovim/Button.astro";
 
 <Layout title="ArisDev | Full Stack Developer | anmol.pro">
   <main
-    class="relative grid h-full max-w-7xl gap-12 p-8 max-sm:py-16 md:min-h-screen md:grid-cols-6 md:p-16 xl:gap-24 text-skin-base print:gap-4"
+    class="relative grid h-full max-w-7xl gap-6 p-4 sm:gap-8 sm:p-6 md:min-h-screen md:grid-cols-6 md:p-8 lg:p-12 xl:gap-12 xl:p-16 text-skin-base print:gap-4"
   >
+    <!-- Colonne de gauche - Profil et à propos -->
     <div
-      class="slide-enter space-y-6 ease-in md:col-span-2 print:grid print:grid-cols-5 print:space-y-0 md:sticky top-0 self-start h-min"
+      class="slide-enter space-y-6 ease-in md:col-span-2 print:grid print:grid-cols-5 print:space-y-0 md:sticky md:top-0 md:max-h-screen md:overflow-y-auto md:py-8 self-start"
     >
-      <Hero className="col-span-2" />
-      <About className="col-span-3" />
-      <ThemeSwitch />
-      <NeovimButton />
+      <div class="space-y-6">
+        <Hero className="col-span-2" />
+        <About className="col-span-3" />
+        <div class="flex items-center justify-start space-x-4 pt-2">
+          <ThemeSwitch />
+          <NeovimButton />
+        </div>
+      </div>
     </div>
+    
+    <!-- Colonne de droite - Contenu principal -->
     <div
-      class="slide-enter-content space-y-12 md:col-span-4 print:grid print:grid-cols-5 print:grid-flow-row print:gap-2 print:space-y-0"
+      class="slide-enter-content space-y-8 md:col-span-4 print:grid print:grid-cols-5 print:grid-flow-row print:gap-2 print:space-y-0"
     >
       <Experience className="print:col-span-3" />
       <Education className="print:col-span-3" />

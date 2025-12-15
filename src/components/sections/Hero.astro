@@ -7,7 +7,7 @@ const { city, region, address } = location
 ---
 
 <Section className={Astro.props.className}>
-  <div class="min-w-[275px]">
+  <div class="w-full max-w-md mx-auto md:max-w-full">
     <section
       id="about"
       aria-label="About me"
@@ -15,17 +15,15 @@ const { city, region, address } = location
       data-tilt-max="8"
       data-tilt-perspective="900"
       data-tilt-scale="1.02"
-      class="group flex gap-2 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all  sm:hover:bg-skin-muted print:gap-0 print:p-2"
+      class="group flex flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 sm:p-6 transition-all duration-300 sm:hover:bg-skin-muted print:gap-0 print:p-2"
     >
-      <div
-        class="flex items-center text-center gap-4 print:gap-1"
-      >
-        <figure class='print:hidden'>
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 print:gap-1">
+        <figure class='print:hidden w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 flex-shrink-0'>
           <img
             data-ccursor="lift"
-            class='scale-110 sm:grayscale sm:scale-100 transition-all sm:group-hover:scale-110 sm:group-hover:grayscale-0'
-            height={600}
-            width={600}
+            class='rounded-full w-full h-full object-cover scale-110 sm:grayscale sm:scale-100 transition-all duration-300 sm:group-hover:scale-105 sm:group-hover:grayscale-0'
+            height={144}
+            width={144}
             src={image}
             alt={`Profile of ${name}`}
             loading='eager' />
